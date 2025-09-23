@@ -4,6 +4,7 @@ def built_in_functions_max(num1, num2, num3):
     numbers = [num1, num2, num3]
     return max(numbers)
 
+print("Question 1")
 num1 = float(input("Enter your 1st number: "))
 num2 = float(input("Enter your 2nd number: "))
 num3 = float(input("Enter your 3rd number: "))
@@ -12,14 +13,28 @@ print("Your max number is " + str(built_in_functions_max(num1, num2, num3)))
 # Function 2: Using Python built-in functions
 # This function should take three numbers as input and return their min.
 def built_in_functions_min(num1, num2, num3):
-    # TODO: Implement this function
-    pass  # Replace with your code
+    numbers = [num1, num2, num3]
+    return min(numbers)
+    
+print("Question 2")
+num1 = float(input("Enter your 1st number: "))
+num2 = float(input("Enter your 2nd number: "))
+num3 = float(input("Enter your 3rd number: "))
+print("Your min number is " + str(built_in_functions_min(num1, num2, num3)))
 
 # Function 3: Conditional Statements – The If Statement
 # This function should check if a number is positive, negative, or zero and return the corresponding message.
 def check_number(number):
-    # TODO: Implement this function
-    pass  # Replace with your code
+    if number< 0:
+        return "Your number is negative"
+    elif number== 0:
+        return "Your number is zero"
+    else:
+        return "Your number is positive"
+
+print("Question 3")
+number = float(input("Enter your number: ")
+print(check_number(number))
 
 # Function 4: For Loop – Making a Star Shape
 # This function should return a string representing a star shape.
@@ -38,3 +53,4 @@ def count_multiples_of_3(limit):
 def sum_of_even_numbers(start, end):
     # TODO: Implement this function
     pass  # Replace with your code
+
