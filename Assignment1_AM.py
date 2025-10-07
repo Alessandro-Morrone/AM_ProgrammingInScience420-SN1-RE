@@ -4,7 +4,7 @@ def built_in_functions_max(num1, num2, num3):
     numbers = [num1, num2, num3]
     return max(numbers)
 
-print("Question 1")
+print("Question 1: Maximum")
 num1 = float(input("Enter your 1st number: "))
 num2 = float(input("Enter your 2nd number: "))
 num3 = float(input("Enter your 3rd number: "))
@@ -16,7 +16,7 @@ def built_in_functions_min(num1, num2, num3):
     numbers = [num1, num2, num3]
     return min(numbers)
     
-print("Question 2")
+print("Question 2: Minimum")
 num1 = float(input("Enter your 1st number: "))
 num2 = float(input("Enter your 2nd number: "))
 num3 = float(input("Enter your 3rd number: "))
@@ -32,8 +32,8 @@ def check_number(number):
     else:
         return "Your number is positive"
 
-print("Question 3")
-number = float(input("Enter your number: ")
+print("Question 3: Checking Number")
+number = float(input("Enter your number: "))
 print(check_number(number))
 
 # Function 4: For Loop – Making a Star Shape
@@ -50,22 +50,35 @@ star_shape(rows)
 # Function 5: While Loop – Counting Multiples of 3
 # This function should return a list of numbers from 1 to limit, replacing multiples of 3 with "Multiple of 3".
 def count_multiples_of_3(limit):
-    count_numbers = range(0, limit+1)                #PROBLEM HERE IN FUNCTION
-    n = 0
+    count = []                
+    n = 1
     while n <= limit:
         if n % 3 ==0:
             print("Multiple of 3")
-        else:
+        elif n%3 !=0:
             print(n)
+        n+=1
 
 print("Question 5: Counting Multiples of 3")
 limit = int(input("Enter your endpoint: "))
 count_multiples_of_3(limit)
 
+
 # Function 6: Sum of Even Numbers in a Range
 # This function should calculate and return the sum of even numbers within a given range.
+import math
 def sum_of_even_numbers(start, end):
-    # TODO: Implement this function
-    pass  # Replace with your code
+    total = 0
+    for i in range(start, end+1):
+        if i % 2 !=0:
+            continue
+        elif i % 2 ==0:
+            total += i 
+    return f"the sum of even numbers in your range is {total}"
+
+print("Question 6: Sum of even numbers in a range")
+start = int(input("Enter your starting number: "))
+end = int(input("Enter your end point: "))
+print(sum_of_even_numbers(start, end))
 
 
