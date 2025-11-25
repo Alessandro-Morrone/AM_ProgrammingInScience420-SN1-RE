@@ -4,7 +4,7 @@ import numpy as np
 
 # Function 1: File I/O - Writing and Reading from a Text File
 # Writes a list of numbers to a file and then reads them back as a list of integers.
-def write_and_read_txt(numbers, filename="numbers.txt"):
+def write_and_read_txt(filename, numbers):
     with open(filename, "w") as f:
         for n in numbers:
             f.write(f"{n}\n")
@@ -13,7 +13,7 @@ def write_and_read_txt(numbers, filename="numbers.txt"):
 
 # Function 2: File I/O - Writing and Reading from a CSV File
 # Writes a list of lists to a CSV file and reads it back.
-def write_and_read_csv(data, filename="data.csv"):
+def write_and_read_csv(filename, data):
     with open(filename, "w", newline="") as f:
         writer= csv.writer(f)
         writer.writerows(data)
@@ -21,7 +21,7 @@ def write_and_read_csv(data, filename="data.csv"):
     with open(filename, "r", newline="") as f:
         reader = csv.reader(f)
         for row in reader:
-            result.append(row)
+            result.append([int(x) for x in row)
     return result
 
 # Function 3: Reading an Array from a File
@@ -33,8 +33,8 @@ def read_array_from_file(filename):
 
 # Function 4: Plotting Data with plot() and show()
 # This function plots a given list of numbers as a line graph.
-def plot_data(x_values, y_values):
-    plt.plot(x_values, y_values, marker='o', linestyle='-')
+def plot_data(numbers):
+    plt.plot(range(len(numbers)), numbers, marker='o', linestyle='-')
     plt.xlabel("X Axis")
     plt.ylabel("Y Axis")
     plt.title("Curve Plot")
@@ -45,10 +45,10 @@ def plot_data(x_values, y_values):
 # Function 5: Density Plot
 # This function takes a list of numbers and plots a density plot.
 def density_plot(data, color_map='gray'):
-    plt.hist2d(data[:, 0], data[:, 1], bins=50, cmap=color_map, density=True)
-    plt.colorbar(label="Density")
-    plt.xlabel("X Axis")
-    plt.ylabel("Y Axis")
+    plt.hist(data, bins=50, density=True, color='gray')
+    plt.xlabel("Value")
+    plt.ylabel("Density")
     plt.title("Density Plot")
     plt.show()
     return
+
