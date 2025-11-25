@@ -21,7 +21,7 @@ def write_and_read_csv(filename, data):
     with open(filename, "r", newline="") as f:
         reader = csv.reader(f)
         for row in reader:
-            result.append([int(x) for x in row)
+            result.append([int(x) for x in row])
     return result
 
 # Function 3: Reading an Array from a File
@@ -51,4 +51,5 @@ def density_plot(data, color_map='gray'):
     plt.title("Density Plot")
     plt.show()
     return
+
 
