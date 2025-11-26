@@ -14,15 +14,11 @@ def write_and_read_txt(filename, numbers):
 # Function 2: File I/O - Writing and Reading from a CSV File
 # Writes a list of lists to a CSV file and reads it back.
 def write_and_read_csv(filename, data):
-    with open(filename, "w", newline="") as f:
-        writer= csv.writer(f)
-        writer.writerows(data)
-    result = []
-    with open(filename, "r", newline="") as f:
-        reader = csv.reader(f)
-        for row in reader:
-            result.append([int(x) for x in row])
-    return result
+    arr = np.array(data)
+    np.savetxt(filename, arr, fmt="%d", delimiter=",")
+    loaded = np.loadtxt(filename, delimiter=",", dtype=int)
+    return loaded.tolist()
+
 
 # Function 3: Reading an Array from a File
 # Reads a space-separated array from a text file and converts it to a NumPy array.
@@ -51,6 +47,7 @@ def density_plot(data, color_map='gray'):
     plt.title("Density Plot")
     plt.show()
     return
+
 
 
 
