@@ -45,11 +45,12 @@ def plot_data(numbers):
 # Function 5: Density Plot
 # This function takes a list of numbers and plots a density plot.
 def density_plot(data, color_map='gray'):
-    plt.hist(data, bins=50, density=True, color='gray')
+    plt.hist2d(data[:, 0], data[:, 1], bins=50, cmap=color_map, density=True)
     plt.xlabel("Value")
     plt.ylabel("Density")
     plt.title("Density Plot")
     plt.show()
     return
+
 
 
