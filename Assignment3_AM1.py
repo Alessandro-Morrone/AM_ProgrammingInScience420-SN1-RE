@@ -14,18 +14,24 @@ def write_and_read_txt(filename, numbers):
 # Function 2: File I/O - Writing and Reading from a CSV File
 # Writes a list of lists to a CSV file and reads it back.
 def write_and_read_csv(filename, data):
-    arr = np.array(data)                  #Convert Python list-of-lists into a NumPy array
-    np.savetxt(filename, arr, fmt="%d", delimiter=",")         #Write the array to CSV format, comma-separated
-    loaded = np.loadtxt(filename, delimiter=",", dtype=int)         #Read the CSV file back into a NumPy array
-    return loaded.tolist()           #Convert NumPy array back to regular Python nested lists
-
+    with open(filename, "w") as f:      #Write the rows as comma-separated values
+        for row in data:
+            f.write(",".join(str(x) for x in row) + "\n")
+    result = []           # Read the file back and convert each value to int
+    with open(filename, "r") as f:
+        for line in f:
+            values = line.strip().split(",")
+            result.append([int(x) for x in values])
+    return result
 
 # Function 3: Reading an Array from a File
 # Reads a space-separated array from a text file and converts it to a NumPy array.
 def read_array_from_file(filename):
-    with open(filename, 'r') as f:           #Read the entire file content as one string
-        content = f.read().strip() 
-    return np.array([float(x) for x in content.split()])   
+    values = []
+    with open(filename, 'r') as f:
+        for x in f.read().split():
+            values.append(float(x))
+    return np.array(values)   
 
 # Function 4: Plotting Data with plot() and show()
 # This function plots a given list of numbers as a line graph.
@@ -47,6 +53,7 @@ def density_plot(data, color_map='gray'):
     plt.title("Density Plot")
     plt.show()            # Display the plot
     return
+
 
 
 
